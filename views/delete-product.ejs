@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Delete Product</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.15/dist/tailwind.min.css" rel="stylesheet">
+</head>
+<body class="bg-gray-100 flex items-center justify-center h-screen">
+  <div class="bg-white border-2 border-black p-8 rounded-lg shadow-lg">
+    <h1 class="text-3xl font-bold text-center mb-4">Delete Product</h1>
+    <p class="mb-4 text-center">Are you sure you want to delete the following product?</p>
+    <table class="w-full border-collapse border-2 border-black">
+      <% const fields = [
+        { key: 'Name', value: product.name },
+        { key: 'Brand', value: product.brand },
+        { key: 'Price', value: product.price },
+        { key: 'Description', value: product.description },
+        { key: 'Category', value: product.category.join(', ') },
+        { key: 'Sizes', value: product.sizes.join(', ') },
+        { key: 'Colors', value: product.colors.join(', ') },
+        { key: 'Availability', value: product.availability ? 'Available' : 'Not Available' }
+      ];
+      fields.forEach(field => { %>
+        <tr class="border-b-2 border-black">
+          <td class="px-4 py-2 font-semibold text-center"><%= field.key %>:</td>
+          <td class="px-4 py-2 text-center"><%= field.value %></td>
+        </tr>
+      <% }); %>
+    </table>
+    <div class="flex justify-center mt-4">
+      <form action="/admin/products/<%= product._id %>?_method=DELETE" method="POST">
+        <button type="submit" class="bg-red-500 hover:bg-red-600 text-white px-4 py-2 rounded-md mr-2">Delete</button>
+      </form>
+      <a href="/admin/products" class="bg-gray-300 hover:bg-gray-400 text-gray-800 px-4 py-2 rounded-md">Cancel</a>
+    </div>
+  </div>
+</body>
+</html>

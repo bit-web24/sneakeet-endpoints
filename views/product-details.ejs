@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.15/dist/tailwind.min.css" rel="stylesheet">
+    <title>Product Details</title>
+</head>
+
+<body class="bg-gray-100">
+    <div class="flex items-center justify-center h-screen">
+        <div class="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-50">
+            <div class="bg-white p-8 rounded-lg shadow-lg max-w-3xl w-full">
+                <h1 class="text-3xl font-bold mb-4">Product Details</h1>
+
+                <table class="w-full border border-black">
+                    <tbody>
+                        <tr class="border-b border-black">
+                            <td class="p-2 font-semibold">Name:</td>
+                            <td class="p-2"><%= product.name %></td>
+                        </tr>
+                        <tr class="border-b border-black">
+                            <td class="p-2 font-semibold">Brand:</td>
+                            <td class="p-2"><%= product.brand %></td>
+                        </tr>
+                        <tr class="border-b border-black">
+                            <td class="p-2 font-semibold">Price:</td>
+                            <td class="p-2"><%= product.price %></td>
+                        </tr>
+                        <tr class="border-b border-black">
+                            <td class="p-2 font-semibold">Description:</td>
+                            <td class="p-2"><%= product.description %></td>
+                        </tr>
+                        <tr class="border-b border-black">
+                            <td class="p-2 font-semibold">Category:</td>
+                            <td class="p-2"><%= product.category.join(', ') %></td>
+                        </tr>
+                        <tr class="border-b border-black">
+                            <td class="p-2 font-semibold">Sizes:</td>
+                            <td class="p-2"><%= product.sizes.join(', ') %></td>
+                        </tr>
+                        <tr class="border-b border-black">
+                            <td class="p-2 font-semibold">Colors:</td>
+                            <td class="p-2"><%= product.colors.join(', ') %></td>
+                        </tr>
+                        <tr class="border-b border-black">
+                            <td class="p-2 font-semibold">Availability:</td>
+                            <td class="p-2"><%= product.availability ? 'Available' : 'Not Available' %></td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <div class="flex justify-end mt-4">
+                    <a href="/admin/products/<%= product._id %>/edit"
+                        class="bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded-md mx-2">Edit</a>
+                    <a href="/admin/products"
+                        class="bg-gray-300 hover:bg-gray-400 text-gray-800 px-4 py-2 rounded-md mx-2">Back</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
