@@ -34,9 +34,17 @@ app.use(cookieParser());
 // Enable method override for PUT and DELETE requests
 app.use(methodOverride('_method'));
 
+// Serve static files from the "public" directory
+app.use(express.static(path.join(__dirname, 'public')));
+
 // Routes
 app.use('/api', router);
 app.use('/admin', admin);
+
+// Serve the static HTML file when someone requests the root URL ("/")
+app.get('/', (req, res) => {
+  res.sendFile(path.join(__dirname, 'public', 'index.html'));
+});
 
 // Start the server
 app.listen(port, () => {

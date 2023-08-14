@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>API Documentation</title>
+</head>
+<body>
+
+<h1>API Documentation</h1>
+
+<h2>User Routes</h2>
+<h3>Authentication</h3>
+<ul>
+  <li><code>POST /signup</code></li>
+  <li><code>POST /login</code></li>
+  <li><code>POST /logout</code></li>
+</ul>
+
+<h3>Products</h3>
+<ul>
+  <li><code>GET /products/:product_id</code></li>
+  <li><code>GET /products</code></li>
+</ul>
+
+<h3>Customer Profile</h3>
+<ul>
+  <li><code>GET /account/:_id</code></li>
+  <li><code>PUT /account/:_id</code></li>
+  <li><code>DELETE /account/:_id</code></li>
+</ul>
+
+<h3>Cart</h3>
+<ul>
+  <li><code>GET /account/:_id/cart</code></li>
+  <li><code>POST /account/:_id/cart</code></li>
+  <li><code>DELETE /account/:_id/cart/:item_id</code></li>
+</ul>
+
+<h3>Orders</h3>
+<ul>
+  <li><code>GET /account/:_id/orders</code></li>
+  <li><code>POST /account/:_id/orders</code></li>
+  <li><code>DELETE /account/:_id/orders/:order_id</code></li>
+</ul>
+
+<h3>Favorites</h3>
+<ul>
+  <li><code>GET /account/:_id/favorites</code></li>
+  <li><code>GET /account/:_id/favorites/:favorite_id</code></li>
+  <li><code>POST /account/:_id/favorites</code></li>
+  <li><code>DELETE /account/:_id/favorites/:favorite_id</code></li>
+</ul>
+
+<h2>Admin Routes</h2>
+<h3>Products</h3>
+<ul>
+  <li><code>GET /admin/products</code> - Display all products</li>
+  <li><code>GET /admin/products/new</code> - Display the form to create a new product</li>
+  <li><code>POST /admin/products</code> - Create a new product</li>
+  <li><code>GET /admin/products/:_id</code> - Display a specific product</li>
+  <li><code>GET /admin/products/:_id/edit</code> - Display the form to edit a product</li>
+  <li><code>PUT /admin/products/:_id</code> - Update a specific product</li>
+  <li><code>GET /admin/products/:_id/delete</code> - Display the form to delete a product</li>
+  <li><code>DELETE /admin/products/:_id</code> - Delete a specific product</li>
+</ul>
+
+</body>
+</html>
